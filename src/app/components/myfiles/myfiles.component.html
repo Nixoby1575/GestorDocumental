@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Mis Documentos</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+      
+
+    <div class="box-files">
+        <div class="container">
+            <input type="file" id="fileInput"(change)="onFileSelected($event)" multiple/>
+            <label for="fileInput" class="uploadLabel"><i class='bx bxs-file-plus'></i></label>
+            <button (click)="uploadFile()" id="uploadButton" >Subir</button>
+        </div>
+    
+        <div id="filters">
+            <h2>Filtros</h2>
+            <div class="containter-filter">
+                <div class="filter">
+                    <label for="fileType">Tipo de Archivo:</label>
+                    <select id="fileType">
+                        <option value="">Todos</option>
+                        <option value="pdf">PDF</option>
+                        <option value="doc">Documento de Word</option>
+                        <option value="img">Imagen</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="lastModified">Última Modificación:</label>
+                    <select id="lastModified">
+                        <option value="">Todos</option>
+                        <option value="lastHour">Última Hora</option>
+                        <option value="lastDay">Último Día</option>
+                        <option value="lastWeek">Última Semana</option>
+                    </select>
+                </div>
+                <button id="searchButton">Buscar</button>
+            </div>
+            </div>
+            <div id="tablaarchivos"></div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Formato</th>
+                  <th>Tamaño</th>
+                  <th>Fecha de subida</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let file of uploadedFiles">
+                  <td>{{ file.name }}</td>
+                  <td>{{ file.type }}</td>
+                  <td>{{ file.size | fileSize }}</td>
+                  <td>{{ file.uploadDate | date }}</td>
+                  <td>
+                    <a [href]="getFileURL(file)" [download]="file.name" *ngIf="getFileURL(file)">Descargar</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+    
+        <div id="recentFiles">
+            <h2>Archivos Recientes</h2>
+            <ul id="fileList"></ul>
+        </div>
+        <button class="botontabla" (click)="toggleTablaXML()">
+            {{ mostrarTablaXML ? 'Ocultar Tabla XML' : 'Mostrar Tabla XML' }}
+          </button>
+          
+          <h2 *ngIf="mostrarTablaXML">Tabla XML</h2>
+
+          <table *ngIf="mostrarTablaXML">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Archivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let document of documentsXML">
+                <td>{{ document.id }}</td>
+                <td>{{ document.title }}</td>
+                <td>{{ document.author }}</td>
+                <td>{{ document.date }}</td>
+                <td>{{ document.description }}</td>
+                <td>{{ document.file }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="botontabla" (click)="toggleTablaJSON()">
+            {{ mostrarTablaJSON ? 'Ocultar Tabla JSON' : 'Mostrar Tabla JSON' }}
+          </button>
+
+          <h2 *ngIf="mostrarTablaJSON">Tabla JSON</h2>
+
+          <table *ngIf="mostrarTablaJSON">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Archivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let document of documentsJSON">
+                <td>{{ document.id }}</td>
+                <td>{{ document.title }}</td>
+                <td>{{ document.author }}</td>
+                <td>{{ document.date }}</td>
+                <td>{{ document.description }}</td>
+                <td>{{ document.file }}</td>
+              </tr>
+            </tbody>
+          </table>
+        
+</div>
+
+</body>
+</html>

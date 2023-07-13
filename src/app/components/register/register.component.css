@@ -1,0 +1,338 @@
+html{
+  height: 100dvw;
+}
+*{
+  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+	background-color: #1d1d1d;
+}
+
+.form-container {
+	background-color: #ffffff;
+  position: relative;
+	border-radius: 5px;
+	box-shadow: 0px 0px 20px rgb(206, 22, 22);
+	max-width: 30%;
+	padding: 30px;
+  top: 50px;
+  margin: 0 auto;
+}
+
+
+.content-arrow .flecha img {
+    margin: -2px 10%;
+    width: 3em;
+    height: 3em;
+    transform: rotate(-180deg);
+}
+.content-arrow .flecha{
+    position: relative;
+    top: -75px;
+    right: 20px;
+    width: 3.7em;
+    height: 2.8em;
+    background: #ff6868; 
+    -webkit-mask: url("../../../assets/img/nature-sprite.png");
+    mask: url("../../../assets/img/nature-sprite.png");
+    -webkit-mask-size: 2300% 100%;
+    mask-size: 2300% 100%;
+    border-radius: 30px;
+    cursor: pointer;
+    -webkit-animation: ani2 0.5s steps(22) forwards;
+    animation: ani2 0.5s steps(22) forwards;
+}
+
+.content-arrow .flecha:hover {
+    -webkit-animation: ani 0.5s steps(22) forwards;
+    animation: ani 0.5s steps(22) forwards;
+  }
+
+  .mask-arrow img {
+    transform: rotate(-180deg);
+    width: 2.3em;
+    height: 2.5em;
+}
+
+.mask-arrow{
+    
+    text-align: center;
+    width: 101%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    position: relative;
+    font-size: 20px;
+    top: -1.1em;
+    left: -0.8em;
+    overflow: hidden;
+  }
+
+
+  @-webkit-keyframes ani {
+    from {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+    to {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+  }
+  @keyframes ani {
+    from {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+    to {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+  }
+  @-webkit-keyframes ani2 {
+    from {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+    to {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+  }
+  @keyframes ani2 {
+    from {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+    to {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+  }
+
+
+
+
+  
+
+.form-container h1 {
+	color: #4e4e4e;
+  font-family: 'Poppins', sans-serif;
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-align: center;
+	animation:tracking-in-contract 0.4s linear both;
+}
+
+@keyframes tracking-in-contract {
+	0%{letter-spacing:.25em;opacity:0}
+	40%{opacity:.6}
+	100%{letter-spacing:normal;opacity:1}
+}
+
+.form-container form {
+	display: flex;
+	flex-direction: column;
+	
+}
+.input-box{
+  display: flex;
+    position: relative;
+    width: 100%;
+	  margin: 18px auto;
+}
+
+.input-box input{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    box-shadow: none;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+span {
+	position: absolute;
+	left: 8px;
+	padding-top: 20px;
+	color: #525252;
+  font-family: 'Lato', sans-serif;
+	transition: .3s;
+}
+.input-box input:valid ~ span,
+.input-box input:focus ~ span {
+   color: rgb(163, 163, 163);
+   font-size: 0.75em;
+   font-family: 'Lato', sans-serif;
+   z-index: 10;
+   background-color: #ffffff;
+   padding: 6px;
+   transform: translateY(-15px);
+}
+ .btnpassword {
+  font-size: 0;
+  z-index: -50;
+  position: absolute;
+  background-color: transparent;
+  color: transparent;
+	transition: .1s;
+  margin: -15px;
+}
+.input-box input:valid ~ .btnpassword,
+.input-box input:focus ~ .btnpassword{
+  color: rgb(255, 92, 92);
+  z-index: 50;
+  position: relative;
+  transform: translateY(8px);
+  background-color: transparent;
+  font-size: 5.75em;
+  padding: 6px;
+  margin: -15px;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	font-size: 16px;
+	padding: 8px;
+	width: 100%;
+}
+
+
+mat-error {
+  margin: -10px;
+  position: relative;
+  left: 15px;
+  top: -5px;
+  font-size: 11px;
+}
+
+.input-box i{
+    position: absolute;
+	top: 7;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    border: 1px solid #ff6868;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: .3s;
+    pointer-events: none;
+}
+
+input:valid ~ i,
+.input-box input:focus ~ i {
+    height: 44px;
+	background-color: transparent;
+	border: 2px solid #ff6868;
+}
+
+
+.links{
+    display: flex;
+    margin: 0px 0 30px 15px;
+    justify-content: space-between;
+}
+.links a {
+    margin: 0px 0;
+    font-size: .85em;
+    color: rgb(255, 122, 122);
+    text-decoration: none;
+}
+.links a:hover{
+    color: rgb(255, 59, 59);
+    text-decoration: underline;
+}
+
+
+.content-register {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6vh;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid #ff6868;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    transition: 0.5s;
+    letter-spacing: 1px;
+  }
+
+  .content-register .botons {
+    width: 101%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 1px;
+    background: #ff6868;
+    -webkit-mask: url("../../../assets/img/nature-sprite.png");
+    mask: url("../../../assets/img/nature-sprite.png");
+    -webkit-mask-size: 2300% 100%;
+    mask-size: 2300% 100%;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    -webkit-animation: ani2 0.7s steps(22) forwards;
+    animation: ani2 0.7s steps(22) forwards;
+}
+.content-register .botons:hover {
+    -webkit-animation: ani 0.7s steps(22) forwards;
+    animation: ani 0.7s steps(22) forwards;
+}
+.mask-btn {
+    color: #5e5e5e;
+    text-align: center;
+    width: 101%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    position: absolute;
+    font-size: 20px;
+    top: -12px;
+    left: 0px;
+    overflow: hidden;
+  }
+
+
+
+  .example-tel-input-container {
+    display: flex;
+  }
+  
+  .example-tel-input-element {
+    border: none;
+    background: none;
+    padding: 0;
+    outline: none;
+    font: inherit;
+    text-align: center;
+  }
+  
+  .example-tel-input-spacer {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+  
+  :host.example-floating .example-tel-input-spacer {
+    opacity: 1;
+  }
+
+  
